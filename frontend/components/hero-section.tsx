@@ -76,10 +76,10 @@ export function HeroSection() {
       <div className="container relative z-10 mx-auto flex min-h-screen items-center px-4 pt-32">
         <div className="max-w-2xl space-y-6">
           <h1 className="text-4xl font-bold leading-tight tracking-tight text-white md:text-5xl lg:text-6xl text-balance">
-            Ship Cargo Worldwide <span className="block">With Real-Time Tracking</span>
+            Ship Cargo Worldwide <span className="block">With transparent pricing</span>
           </h1>
           <p className="max-w-xl text-lg leading-relaxed text-white/90">
-            We move your cargo fast. Simple pricing, real-time tracking, and human support when you need it.
+            Your shipment, handled with care. We manage logistics so you can focus on your business.
           </p>
 
           <div className="flex flex-wrap gap-4 pt-2">
