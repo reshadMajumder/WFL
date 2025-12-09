@@ -1,7 +1,7 @@
 import { HeroSection } from "@/components/hero-section"
 import { CoreServices } from "@/components/core-services"
 import { WhyChooseUs } from "@/components/why-choose-us"
-import { TrackingBooking } from "@/components/tracking-booking"
+import { BookingSection } from "@/components/booking-section"
 import { StatsSection } from "@/components/stats-section"
 import { Footer } from "@/components/footer"
 
@@ -12,7 +12,7 @@ export default function Home() {
         <HeroSection />
         <CoreServices />
         <WhyChooseUs />
-        <TrackingBooking />
+        <BookingSection />
         <StatsSection />
       </main>
       <Footer />

@@ -1,3 +1,5 @@
+"use client"
+
 import Link from "next/link"
 import { Plane, Ship, Truck, FileCheck, ArrowRight } from "lucide-react"
 
@@ -6,19 +8,19 @@ const services = [
     icon: Plane,
     title: "Air Freight",
     description: "Express air cargo for time-sensitive shipments with global airport coverage.",
-    href: "/services#air-freight",
+    href: "/services/air-freight",
   },
   {
     icon: Ship,
     title: "Sea Freight",
     description: "FCL and LCL ocean shipping with competitive rates on major trade lanes.",
-    href: "/services#sea-freight",
+    href: "/services/sea-freight",
   },
   {
     icon: Truck,
     title: "Road Freight",
     description: "Door-to-door trucking and cross-border land transportation services.",
-    href: "/services#road-freight",
+    href: "/services/road-freight",
   },
   {
     icon: FileCheck,

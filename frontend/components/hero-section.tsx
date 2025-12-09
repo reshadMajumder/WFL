@@ -25,7 +25,7 @@ const carouselImages = [
   },
 ]
 
-const valuePoints = ["Competitive Freight Rates", "Real-Time Tracking", "24/7 Support", "Global Network"]
+const valuePoints = ["Competitive Freight Rates", "24/7 Support", "Global Network", "On-Time Delivery"]
 
 export function HeroSection() {
   const [currentSlide, setCurrentSlide] = useState(0)
@@ -72,14 +72,14 @@ export function HeroSection() {
         ))}
       </div>
 
-      {/* Hero Content */}
+      {/* Hero Content - Updated headline to remove tracking */}
       <div className="container relative z-10 mx-auto flex min-h-screen items-center px-4 pt-32">
         <div className="max-w-2xl space-y-6">
           <h1 className="text-4xl font-bold leading-tight tracking-tight text-white md:text-5xl lg:text-6xl text-balance">
-            Ship Cargo Worldwide <span className="block">With transparent pricing</span>
+            Ship Cargo Worldwide <span className="block">Fast & Reliable</span>
           </h1>
           <p className="max-w-xl text-lg leading-relaxed text-white/90">
-            Your shipment, handled with care. We manage logistics so you can focus on your business.
+            We move your cargo fast. Simple pricing, reliable service, and human support when you need it.
           </p>
 
           <div className="flex flex-wrap gap-4 pt-2">
@@ -103,7 +103,7 @@ export function HeroSection() {
               className="border-white text-white hover:bg-white/10 bg-transparent"
               asChild
             >
-              <a href="/tracking">Track Shipment</a>
+              <a href="/services">Our Services</a>
             </Button>
           </div>
         </div>

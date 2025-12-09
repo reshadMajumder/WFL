@@ -19,10 +19,18 @@ import { Textarea } from "@/components/ui/textarea"
 import { Calendar } from "@/components/ui/calendar"
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
 import { CalendarIcon, Package, MapPin, Truck } from "lucide-react"
-import { format } from "date-fns"
 
 interface BookConsignmentDialogProps {
   children: React.ReactNode
+}
+
+function formatDate(date: Date): string {
+  return date.toLocaleDateString("en-US", {
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  })
 }
 
 export function BookConsignmentDialog({ children }: BookConsignmentDialogProps) {
@@ -198,7 +206,7 @@ export function BookConsignmentDialog({ children }: BookConsignmentDialogProps) 
                 <PopoverTrigger asChild>
                   <Button variant="outline" className="w-full justify-start text-left font-normal bg-transparent">
                     <CalendarIcon className="mr-2 h-4 w-4" />
-                    {pickupDate ? format(pickupDate, "PPP") : "Select date"}
+                    {pickupDate ? formatDate(pickupDate) : "Select date"}
                   </Button>
                 </PopoverTrigger>
                 <PopoverContent className="w-auto p-0">
