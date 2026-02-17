@@ -6,6 +6,19 @@ import { BookConsignmentDialog } from "@/components/book-consignment-dialog"
 import { Ship, Plane, Truck, Train, Check } from "lucide-react"
 
 const pricingPlans = [
+    {
+    icon: Plane,
+    title: "Air Freight",
+    description: "Fast delivery for time-sensitive cargo",
+    features: [
+      "Express delivery options",
+      "Temperature-controlled cargo",
+      "Dangerous goods handling",
+      "Airport-to-airport service",
+      "Priority customs clearance",
+    ],
+    cta: "Get Air Quote",
+  },
   {
     icon: Ship,
     title: "Ocean Freight",
@@ -18,21 +31,10 @@ const pricingPlans = [
       "Customs clearance support",
     ],
     cta: "Get Ocean Quote",
-  },
-  {
-    icon: Plane,
-    title: "Air Freight",
-    description: "Fast delivery for time-sensitive cargo",
-    features: [
-      "Express delivery options",
-      "Temperature-controlled cargo",
-      "Dangerous goods handling",
-      "Airport-to-airport service",
-      "Priority customs clearance",
-    ],
-    cta: "Get Air Quote",
     popular: true,
+
   },
+
   {
     icon: Truck,
     title: "Road Transport",

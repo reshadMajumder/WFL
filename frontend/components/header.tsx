@@ -41,7 +41,7 @@ const solutions = [
 const companyLinks = [
   { title: "About Us", href: "/about", icon: Building, description: "Our story and mission" },
   { title: "Contact Us", href: "/contact", icon: Phone, description: "Get in touch" },
-  { title: "Careers", href: "/careers", icon: Briefcase, description: "Join our team" },
+  // { title: "Careers", href: "/careers", icon: Briefcase, description: "Join our team" },
 ]
 
 export function Header() {
@@ -182,13 +182,13 @@ export function Header() {
                       )}
                     </div>
 
-                    <Link
+                    {/* <Link
                       href="/schedules"
                       className="flex items-center px-4 py-3 text-base font-medium hover:bg-muted transition-colors"
                       onClick={() => setIsOpen(false)}
                     >
                       Schedules
-                    </Link>
+                    </Link> */}
 
                     {/* Company dropdown */}
                     <div>
@@ -286,12 +286,12 @@ export function Header() {
               )}
             </div>
 
-            <Link
+            {/* <Link
               href="/schedules"
               className="flex h-14 items-center px-3 lg:px-4 text-sm font-medium text-white/90 transition-colors hover:text-white hover:bg-white/10"
             >
               Schedules
-            </Link>
+            </Link> */}
 
             {/* Solutions Dropdown */}
             <div
