@@ -30,9 +30,11 @@ export function Footer() {
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-5">
           <div className="lg:col-span-2">
             <Link href="/" className="flex items-center gap-2">
-              <div className="flex h-10 w-10 items-center justify-center bg-accent">
-                <Globe className="h-6 w-6 text-accent-foreground" />
-              </div>
+              <img 
+              src="/wfl-logo.png" 
+              alt="World Famous Logistics" 
+              className="h-10 sm:h-12 w-auto"
+            />
               <div className="flex flex-col">
                 <span className="text-lg font-bold leading-none tracking-tight">WORLD FAMOUS</span>
                 <span className="text-xs font-medium tracking-widest text-primary-foreground/70">LOGISTICS</span>
@@ -106,22 +108,45 @@ export function Footer() {
             </ul>
           </div>
         </div>
-        <div className="mt-12 flex flex-col gap-6 border-t border-primary-foreground/10 pt-8 md:flex-row md:items-center md:justify-between">
-          <div className="flex flex-wrap gap-6 text-sm text-primary-foreground/70">
-            <div className="flex items-center gap-2">
-              <Mail className="h-4 w-4" />
-              <span>contact@wflogistics.com</span>
+        <div className="mt-12 border-t border-primary-foreground/10 pt-8">
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            <div>
+              <div className="flex items-center gap-2 mb-3">
+                <Mail className="h-4 w-4 text-accent" />
+                <h3 className="font-semibold text-primary-foreground">Email</h3>
+              </div>
+              <div className="space-y-2 text-sm text-primary-foreground/70">
+                <div>nafi@worldfamouslogistics.com</div>
+                <div>a.hossain@worldfamouslogistics.com</div>
+                <div>nazmul.haque@worldfamouslogistics.com</div>
+              </div>
             </div>
-            <div className="flex items-center gap-2">
-              <Phone className="h-4 w-4" />
-              <span>+880 1234 567890</span>
+            <div>
+              <div className="flex items-center gap-2 mb-3">
+                <Phone className="h-4 w-4 text-accent" />
+                <h3 className="font-semibold text-primary-foreground">Phone</h3>
+              </div>
+              <div className="space-y-2 text-sm text-primary-foreground/70">
+                <div>Office: +880-02334419246</div>
+                <div>Director: +880 1765 407019</div>
+                <div>Chairman: +880 1711 825233</div>
+                <div>Managing Director: +880 1713 063486</div>
+              </div>
             </div>
-            <div className="flex items-center gap-2">
-              <MapPin className="h-4 w-4" />
-              <span>Dhaka, Bangladesh</span>
+            <div>
+              <div className="flex items-center gap-2 mb-3">
+                <MapPin className="h-4 w-4 text-accent" />
+                <h3 className="font-semibold text-primary-foreground">Address</h3>
+              </div>
+              <div className="text-sm text-primary-foreground/70">
+                1st Floor (1st Staircase)<br />
+                1837 Abdus Sattar By Lane<br />
+                Sk. Mujib Road, Agrabad<br />
+                Chattogram-4100, Bangladesh
+              </div>
             </div>
           </div>
-          <div className="flex flex-wrap gap-4 text-sm">
+          <div className="mt-6 flex flex-wrap gap-4 text-sm border-t border-primary-foreground/10 pt-6">
             <Link href="/contact" className="text-primary-foreground/70 hover:text-accent">
               Contact Us
             </Link>

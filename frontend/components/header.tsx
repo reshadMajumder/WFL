@@ -50,14 +50,16 @@ export function Header() {
   const [mobileSubmenu, setMobileSubmenu] = useState<string | null>(null)
 
   return (
-    <header className="absolute top-0 left-0 right-0 z-50 w-full">
+    <header className="absolute top-1 left-0 right-0 z-50 w-full">
       {/* Top bar */}
       <div className="border-b border-white/10">
         <div className="container mx-auto flex h-12 items-center justify-between px-4">
           <Link href="/" className="flex items-center gap-3">
-            <div className="flex h-9 w-9 items-center justify-center bg-accent">
-              <Globe className="h-5 w-5 text-white" />
-            </div>
+            <img 
+              src="/wfl-logo.png" 
+              alt="World Famous Logistics" 
+              className="h-10 sm:h-12 w-auto"
+            />
             <div className="flex flex-col">
               <span className="text-base sm:text-lg font-bold leading-none tracking-tight text-white">
                 WORLD FAMOUS
