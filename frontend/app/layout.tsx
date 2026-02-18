@@ -13,21 +13,8 @@ export const metadata: Metadata = {
     "Integrated container logistics and supply chain partner providing end-to-end services across ocean, air, road, rail, and last-mile delivery worldwide.",
   generator: "v0.app",
   icons: {
-    icon: [
-      {
-        url: "/icon-light-32x32.png",
-        media: "(prefers-color-scheme: light)",
-      },
-      {
-        url: "/icon-dark-32x32.png",
-        media: "(prefers-color-scheme: dark)",
-      },
-      {
-        url: "/icon.svg",
-        type: "image/svg+xml",
-      },
-    ],
-    apple: "/apple-icon.png",
+    icon: "/wfl-logo.png",
+    apple: "/wfl-logo.png",
   },
 }
 

@@ -3,7 +3,7 @@ import { Footer } from "@/components/footer"
 import { PageHeader } from "@/components/page-header"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
-import { Globe, Users, Award, TrendingUp, Target, Handshake, Clock, Shield, ArrowRight } from "lucide-react"
+import { Globe, Users, Award, TrendingUp, Target, Handshake, Clock, Shield, ArrowRight, Phone, Mail } from "lucide-react"
 
 const stats = [
   { icon: Globe, value: "50+", label: "Countries Served" },
@@ -74,24 +74,25 @@ const milestones = [
 
 const leadership = [
   {
-    name: "Mohammad Rahman",
-    role: "Founder & CEO",
-    description: "25+ years in international logistics and trade",
+    name: "Shadman Shahriyar Nafi",
+    role: "Director",
+    description: "Leading strategic initiatives and business development",
+    mobile: "+880 1765 407019",
+    email: "nafi@worldfamouslogistics.com",
   },
   {
-    name: "Fatima Ahmed",
-    role: "Director of Operations",
-    description: "Expert in supply chain optimization",
+    name: "MD. Abul Hossain",
+    role: "Chairman",
+    description: "Visionary leadership and corporate governance",
+    mobile: "+880 1711 825233",
+    email: "a.hossain@worldfamouslogistics.com",
   },
   {
-    name: "Karim Hassan",
-    role: "Head of Air Freight",
-    description: "Former airline cargo manager with 15 years experience",
-  },
-  {
-    name: "Nasreen Begum",
-    role: "Head of Sea Freight",
-    description: "Specialist in ocean shipping and port operations",
+    name: "Md. Nazmul Haque",
+    role: "Managing Director",
+    description: "Operational excellence and strategic management",
+    mobile: "+880 1713 063486",
+    email: "nazmul.haque@worldfamouslogistics.com",
   },
 ]
 
@@ -276,15 +277,29 @@ export default function AboutPage() {
             <p className="mx-auto mt-4 max-w-2xl text-center text-muted-foreground">
               Meet the experienced professionals leading World Famous Logistics.
             </p>
-            <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+            <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
               {leadership.map((person) => (
-                <div key={person.name} className="border border-border bg-card p-6 text-center">
-                  <div className="mx-auto h-24 w-24 bg-muted flex items-center justify-center">
+                <div key={person.name} className="border border-border bg-card p-6">
+                  <div className="mx-auto h-24 w-24 bg-muted flex items-center justify-center mb-4">
                     <Users className="h-10 w-10 text-muted-foreground" strokeWidth={1.5} />
                   </div>
-                  <h3 className="mt-4 font-semibold">{person.name}</h3>
-                  <p className="text-sm text-accent">{person.role}</p>
-                  <p className="mt-2 text-xs text-muted-foreground">{person.description}</p>
+                  <h3 className="font-semibold text-lg">{person.name}</h3>
+                  <p className="text-sm text-accent font-medium mt-1">{person.role}</p>
+                  <p className="mt-2 text-sm text-muted-foreground">{person.description}</p>
+                  <div className="mt-4 pt-4 border-t border-border space-y-2">
+                    <div className="flex items-start gap-2">
+                      <Phone className="h-4 w-4 text-accent mt-0.5 shrink-0" />
+                      <a href={`tel:${person.mobile}`} className="text-xs text-muted-foreground hover:text-accent transition-colors">
+                        {person.mobile}
+                      </a>
+                    </div>
+                    <div className="flex items-start gap-2">
+                      <Mail className="h-4 w-4 text-accent mt-0.5 shrink-0" />
+                      <a href={`mailto:${person.email}`} className="text-xs text-muted-foreground hover:text-accent transition-colors break-all">
+                        {person.email}
+                      </a>
+                    </div>
+                  </div>
                 </div>
               ))}
             </div>
