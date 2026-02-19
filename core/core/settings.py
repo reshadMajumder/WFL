@@ -26,7 +26,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'django-insecure-fs*dyw$v+jn+$f_os2jfhm*m844is0hc_j+e=3)-l^ka$-7u#d')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv('DJANGO_DEBUG', 'False') == 'True'  
+DEBUG = os.getenv('DEBUG', 'False') == 'True'  
 
 ALLOWED_HOSTS = os.getenv('DJANGO_ALLOWED_HOSTS', '*').split(',')
 
@@ -34,6 +34,7 @@ ALLOWED_HOSTS = os.getenv('DJANGO_ALLOWED_HOSTS', '*').split(',')
 # Application definition
 
 INSTALLED_APPS = [
+    'unfold',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -44,6 +45,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'rest_framework.authtoken',
     'rest_framework_simplejwt.token_blacklist',   
+    'contact',
 ]
 
 MIDDLEWARE = [
@@ -142,6 +144,7 @@ REST_FRAMEWORK = {
 }
     
 # JWT Settings
+from datetime import timedelta
 SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(minutes=300),
     'REFRESH_TOKEN_LIFETIME': timedelta(days=7),
@@ -158,3 +161,71 @@ CSRF_TRUSTED_ORIGINS = [
     ]
 
 CORS_ALLOW_ALL_ORIGINS = True
+
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+
+EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER', '')
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD', '')
+
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+
+
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,
+    "handlers": {
+        "console": {
+            "class": "logging.StreamHandler",
+        },
+        "file": {
+            "class": "logging.FileHandler",
+            "filename": "email_errors.log",
+        },
+    },
+    "loggers": {
+        "": {
+            "handlers": ["console", "file"],
+            "level": "WARNING",
+        },
+    },
+}
+
+# Unfold Admin Settings
+from django.templatetags.static import static
+from django.urls import reverse_lazy
+from django.utils.translation import gettext_lazy as _
+
+UNFOLD = {
+    "SITE_TITLE": "WFL Admin Panel",
+    "SITE_HEADER": "WFL Admin",
+    "SITE_URL": "/",
+    "SITE_SYMBOL": "speed",
+    "THEME": "dark",
+    "SHOW_HISTORY": True,
+    "SHOW_VIEW_ON_SITE": False,
+    "SIDEBAR": {
+        "show_search": True,
+        "show_all_applications": False,
+        "navigation": [
+            {
+                "title": _("Contact Management"),
+                "separator": True,
+                "items": [
+                    {
+                        "title": _("Book Consignments"),
+                        "icon": "inbox",
+                        "link": reverse_lazy("admin:contact_bookconsignment_changelist"),
+                    },
+                    {
+                        "title": _("Email Recipients"),
+                        "icon": "mail",
+                        "link": reverse_lazy("admin:contact_emails_changelist"),
+                    },
+                ],
+            },
+        ],
+    },
+}

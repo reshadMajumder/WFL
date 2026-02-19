@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f8;
+            padding: 20px;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 24px;
+            border-radius: 8px;
+        }
+        h2 {
+            color: #2c3e50;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        td {
+            padding: 8px;
+            border-bottom: 1px solid #eaeaea;
+        }
+        .label {
+            font-weight: bold;
+            width: 35%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>📦 New Book Consignment Submitted</h2>
+
+        <table>
+            <tr><td class="label">Name</td><td>{{ consignment.name }}</td></tr>
+            <tr><td class="label">Company</td><td>{{ consignment.company_name }}</td></tr>
+            <tr><td class="label">Email</td><td>{{ consignment.email }}</td></tr>
+            <tr><td class="label">Phone</td><td>{{ consignment.phone }}</td></tr>
+            
+            <tr><td class="label">Shipment Type</td><td>{{ consignment.shipment_type }}</td></tr>
+            <tr><td class="label">Cargo Type</td><td>{{ consignment.Cargo_type }}</td></tr>
+            <tr><td class="label">Shipment Date</td><td>{{ consignment.date }}</td></tr>
+            
+            <tr><td class="label">Weight</td><td>{{ consignment.weight }} kg</td></tr>
+            <tr><td class="label">Volume</td><td>{{ consignment.volume }} m³</td></tr>
+            <tr><td class="label">Number of Pieces</td><td>{{ consignment.no_of_pieces }}</td></tr>
+            <tr><td class="label">Description</td><td>{{ consignment.description }}</td></tr>
+            
+            <tr><td class="label">Origin Country</td><td>{{ consignment.origine_country }}</td></tr>
+            <tr><td class="label">Origin City/Port</td><td>{{ consignment.city_or_port_origine }}</td></tr>
+            <tr><td class="label">Pickup Address</td><td>{{ consignment.pickup_address }}</td></tr>
+            
+            <tr><td class="label">Destination Country</td><td>{{ consignment.destination_country }}</td></tr>
+            <tr><td class="label">Destination City/Port</td><td>{{ consignment.city_or_port_destination }}</td></tr>
+            <tr><td class="label">Delivery Address</td><td>{{ consignment.deluvery_address }}</td></tr>
+            
+            <tr><td class="label">Message</td><td>{{ consignment.message }}</td></tr>
+        </table>
+
+        <p style="margin-top:20px;">
+            📅 Submitted on {{ consignment.created_at }}
+        </p>
+    </div>
+</body>
+</html>
