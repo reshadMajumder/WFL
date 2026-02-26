@@ -229,3 +229,11 @@ UNFOLD = {
         ],
     },
 }
+
+
+
+# Timezone settings
+TIME_ZONE = 'Asia/Dhaka'
+USE_TZ = True
+USE_L10N = True
+USE_I18N = True

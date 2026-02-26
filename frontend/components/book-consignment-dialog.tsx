@@ -19,6 +19,7 @@ import { Textarea } from "@/components/ui/textarea"
 import { Calendar } from "@/components/ui/calendar"
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
 import { CalendarIcon, Package, MapPin, Truck, Loader2, CheckCircle2, XCircle } from "lucide-react"
+import { BASE_URL } from "@/lib/utils"
 
 interface BookConsignmentDialogProps {
   children: React.ReactNode
@@ -68,6 +69,8 @@ export function BookConsignmentDialog({ children }: BookConsignmentDialogProps) 
   const [open, setOpen] = useState(false)
   const [showResult, setShowResult] = useState(false)
   const [resultMessage, setResultMessage] = useState({ type: "", title: "", message: "" })
+  const [showCustomOrigin, setShowCustomOrigin] = useState(false)
+  const [showCustomDestination, setShowCustomDestination] = useState(false)
   const [formData, setFormData] = useState<FormData>({
     shipment_type: "",
     Cargo_type: "",
@@ -104,7 +107,7 @@ export function BookConsignmentDialog({ children }: BookConsignmentDialogProps) 
         date: pickupDate ? formatDateForAPI(pickupDate) : formData.date,
       }
 
-      const response = await fetch("http://127.0.0.1:8000/api/contact/book-consignment/", {
+      const response = await fetch(`${BASE_URL}/api/contact/book-consignment/`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -165,6 +168,8 @@ export function BookConsignmentDialog({ children }: BookConsignmentDialogProps) 
         message: "",
       })
       setPickupDate(undefined)
+      setShowCustomOrigin(false)
+      setShowCustomDestination(false)
       setStep(1)
       setOpen(false)
     } catch (error) {
@@ -312,19 +317,44 @@ export function BookConsignmentDialog({ children }: BookConsignmentDialogProps) 
               <div className="grid gap-3 sm:gap-4 grid-cols-1 sm:grid-cols-2">
                 <div className="space-y-2">
                   <Label htmlFor="originCountry" className="text-sm">Country</Label>
-                  <Select value={formData.origine_country} onValueChange={(value) => updateFormData("origine_country", value)}>
+                  <Select 
+                    value={showCustomOrigin ? "other" : formData.origine_country} 
+                    onValueChange={(value) => {
+                      if (value === "other") {
+                        setShowCustomOrigin(true)
+                        updateFormData("origine_country", "")
+                      } else {
+                        setShowCustomOrigin(false)
+                        updateFormData("origine_country", value)
+                      }
+                    }}
+                  >
                     <SelectTrigger id="originCountry">
                       <SelectValue placeholder="Select country" />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="India">India</SelectItem>
-                      <SelectItem value="United States">United States</SelectItem>
-                      <SelectItem value="United Kingdom">United Kingdom</SelectItem>
-                      <SelectItem value="UAE">UAE</SelectItem>
-                      <SelectItem value="China">China</SelectItem>
                       <SelectItem value="Bangladesh">Bangladesh</SelectItem>
+                      <SelectItem value="China">China</SelectItem>
+                      <SelectItem value="India">India</SelectItem>
+                      <SelectItem value="Malaysia">Malaysia</SelectItem>
+                      <SelectItem value="Singapore">Singapore</SelectItem>
+                      <SelectItem value="Switzerland">Switzerland</SelectItem>
+                      <SelectItem value="Thailand">Thailand</SelectItem>
+                      <SelectItem value="UAE">UAE</SelectItem>
+                      <SelectItem value="United Kingdom">United Kingdom</SelectItem>
+                      <SelectItem value="United States">United States</SelectItem>
+                      <SelectItem value="Vietnam">Vietnam</SelectItem>
+                      <SelectItem value="other">Other (Specify)</SelectItem>
                     </SelectContent>
                   </Select>
+                  {showCustomOrigin && (
+                    <Input 
+                      placeholder="Enter country name" 
+                      value={formData.origine_country}
+                      onChange={(e) => updateFormData("origine_country", e.target.value)}
+                      className="mt-2"
+                    />
+                  )}
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="originCity" className="text-sm">City / Port</Label>
@@ -356,19 +386,44 @@ export function BookConsignmentDialog({ children }: BookConsignmentDialogProps) 
               <div className="grid gap-3 sm:gap-4 grid-cols-1 sm:grid-cols-2">
                 <div className="space-y-2">
                   <Label htmlFor="destCountry" className="text-sm">Country</Label>
-                  <Select value={formData.destination_country} onValueChange={(value) => updateFormData("destination_country", value)}>
+                  <Select 
+                    value={showCustomDestination ? "other" : formData.destination_country} 
+                    onValueChange={(value) => {
+                      if (value === "other") {
+                        setShowCustomDestination(true)
+                        updateFormData("destination_country", "")
+                      } else {
+                        setShowCustomDestination(false)
+                        updateFormData("destination_country", value)
+                      }
+                    }}
+                  >
                     <SelectTrigger id="destCountry">
                       <SelectValue placeholder="Select country" />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="India">India</SelectItem>
-                      <SelectItem value="United States">United States</SelectItem>
-                      <SelectItem value="United Kingdom">United Kingdom</SelectItem>
-                      <SelectItem value="UAE">UAE</SelectItem>
-                      <SelectItem value="China">China</SelectItem>
                       <SelectItem value="Bangladesh">Bangladesh</SelectItem>
+                      <SelectItem value="China">China</SelectItem>
+                      <SelectItem value="India">India</SelectItem>
+                      <SelectItem value="Malaysia">Malaysia</SelectItem>
+                      <SelectItem value="Singapore">Singapore</SelectItem>
+                      <SelectItem value="Switzerland">Switzerland</SelectItem>
+                      <SelectItem value="Thailand">Thailand</SelectItem>
+                      <SelectItem value="UAE">UAE</SelectItem>
+                      <SelectItem value="United Kingdom">United Kingdom</SelectItem>
+                      <SelectItem value="United States">United States</SelectItem>
+                      <SelectItem value="Vietnam">Vietnam</SelectItem>
+                      <SelectItem value="other">Other (Specify)</SelectItem>
                     </SelectContent>
                   </Select>
+                  {showCustomDestination && (
+                    <Input 
+                      placeholder="Enter country name" 
+                      value={formData.destination_country}
+                      onChange={(e) => updateFormData("destination_country", e.target.value)}
+                      className="mt-2"
+                    />
+                  )}
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="destCity" className="text-sm">City / Port</Label>

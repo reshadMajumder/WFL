@@ -43,7 +43,7 @@ const milestones = [
   {
     year: "2009",
     title: "Company Founded",
-    description: "Started as a small freight forwarding company in Dhaka with just 5 employees.",
+    description: "Started as a small freight forwarding company in Chittagong with just 5 employees.",
   },
   {
     year: "2012",
@@ -115,7 +115,7 @@ export default function AboutPage() {
                 <h2 className="text-3xl font-bold">Our Story</h2>
                 <p className="mt-4 text-muted-foreground leading-relaxed">
                   Founded in 2009, World Famous Logistics began with a simple mission: to make global trade accessible
-                  and efficient for businesses of all sizes. What started as a small freight forwarding company in Dhaka
+                  and efficient for businesses of all sizes. What started as a small freight forwarding company in Chittagong
                   has grown into a comprehensive logistics provider serving customers across 50+ countries.
                 </p>
                 <p className="mt-4 text-muted-foreground leading-relaxed">

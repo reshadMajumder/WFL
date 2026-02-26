@@ -44,7 +44,7 @@ const openPositions = [
     id: 1,
     title: "Operations Executive",
     department: "Operations",
-    location: "Dhaka",
+    location: "chittagong",
     type: "Full-time",
     experience: "2-4 years",
     description:

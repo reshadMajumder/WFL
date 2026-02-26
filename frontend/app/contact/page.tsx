@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Mail, Phone, MapPin, Clock, CheckCircle, Loader2, AlertCircle } from "lucide-react"
+import { BASE_URL } from "@/lib/utils"
 
 interface FormData {
   name: string
@@ -41,7 +42,7 @@ export default function ContactPage() {
     setErrorMessage("")
 
     try {
-      const response = await fetch("http://127.0.0.1:8000/api/contact/contact-message/", {
+      const response = await fetch(`${BASE_URL}/api/contact/contact-message/`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
