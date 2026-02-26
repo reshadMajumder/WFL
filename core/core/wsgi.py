@@ -18,6 +18,7 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'core.settings')
 
 application = get_wsgi_application()
 
-application = WhiteNoise(application, root=str(settings.STATIC_ROOT), prefix='static/')
+if not settings.DEBUG:
+	application = WhiteNoise(application, root=str(settings.STATIC_ROOT), prefix='static/')
 
 app = application
