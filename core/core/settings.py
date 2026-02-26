@@ -239,6 +239,11 @@ UNFOLD = {
                         "icon": "mail",
                         "link": reverse_lazy("admin:contact_emails_changelist"),
                     },
+                    {
+                        "title": _("Contact Messages"),
+                        "icon": "message",
+                        "link": reverse_lazy("admin:contact_contactmessage_changelist"),
+                    }
                 ],
             },
         ],
