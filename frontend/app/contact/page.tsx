@@ -7,14 +7,81 @@ import { Footer } from "@/components/footer"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { Mail, Phone, MapPin, Clock, CheckCircle } from "lucide-react"
+import { Mail, Phone, MapPin, Clock, CheckCircle, Loader2, AlertCircle } from "lucide-react"
+
+interface FormData {
+  name: string
+  email: string
+  company_name: string
+  phone: string
+  subject: string
+  message: string
+}
 
 export default function ContactPage() {
   const [formSubmitted, setFormSubmitted] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [errorMessage, setErrorMessage] = useState("")
+  const [formData, setFormData] = useState<FormData>({
+    name: "",
+    email: "",
+    company_name: "",
+    phone: "",
+    subject: "",
+    message: "",
+  })
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const updateFormData = (field: keyof FormData, value: string) => {
+    setFormData((prev) => ({ ...prev, [field]: value }))
+  }
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    setFormSubmitted(true)
+    setIsSubmitting(true)
+    setErrorMessage("")
+
+    try {
+      const response = await fetch("http://127.0.0.1:8000/api/contact/contact-message/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      })
+
+      const result = await response.json()
+
+      if (!response.ok) {
+        const errorMessages = Object.entries(result)
+          .map(([field, errors]) => {
+            if (Array.isArray(errors)) {
+              return `${field}: ${errors.join(", ")}`
+            }
+            return `${field}: ${errors}`
+          })
+          .join("\n")
+        
+        setErrorMessage(errorMessages || "Failed to send message. Please try again.")
+        return
+      }
+
+      console.log("Message sent successfully:", result)
+      setFormSubmitted(true)
+      // Reset form
+      setFormData({
+        name: "",
+        email: "",
+        company_name: "",
+        phone: "",
+        subject: "",
+        message: "",
+      })
+    } catch (error) {
+      console.error("Error sending message:", error)
+      setErrorMessage("Failed to send message. Please check your connection and try again.")
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -58,29 +125,64 @@ export default function ContactPage() {
                   </div>
                 ) : (
                   <form onSubmit={handleSubmit} className="mt-6 md:mt-8 space-y-4 md:space-y-5">
+                    {errorMessage && (
+                      <div className="flex items-start gap-3 border border-red-500 bg-red-50 dark:bg-red-950/20 p-4 rounded-md">
+                        <AlertCircle className="h-5 w-5 text-red-500 mt-0.5 flex-shrink-0" />
+                        <p className="text-sm text-red-600 dark:text-red-400 whitespace-pre-line">{errorMessage}</p>
+                      </div>
+                    )}
                     <div className="grid gap-4 md:gap-5 sm:grid-cols-2">
                       <div>
                         <label className="mb-2 block text-sm font-medium">Full Name *</label>
-                        <Input required placeholder="Your name" className="h-11 md:h-12" />
+                        <Input 
+                          required 
+                          placeholder="Your name" 
+                          className="h-11 md:h-12" 
+                          value={formData.name}
+                          onChange={(e) => updateFormData("name", e.target.value)}
+                        />
                       </div>
                       <div>
                         <label className="mb-2 block text-sm font-medium">Company</label>
-                        <Input placeholder="Company name" className="h-11 md:h-12" />
+                        <Input 
+                          placeholder="Company name" 
+                          className="h-11 md:h-12" 
+                          value={formData.company_name}
+                          onChange={(e) => updateFormData("company_name", e.target.value)}
+                        />
                       </div>
                     </div>
                     <div className="grid gap-4 md:gap-5 sm:grid-cols-2">
                       <div>
                         <label className="mb-2 block text-sm font-medium">Email *</label>
-                        <Input required type="email" placeholder="you@company.com" className="h-11 md:h-12" />
+                        <Input 
+                          required 
+                          type="email" 
+                          placeholder="you@company.com" 
+                          className="h-11 md:h-12" 
+                          value={formData.email}
+                          onChange={(e) => updateFormData("email", e.target.value)}
+                        />
                       </div>
                       <div>
                         <label className="mb-2 block text-sm font-medium">Phone</label>
-                        <Input placeholder="+880 1XXX XXXXXX" className="h-11 md:h-12" />
+                        <Input 
+                          placeholder="+880 1XXX XXXXXX" 
+                          className="h-11 md:h-12" 
+                          value={formData.phone}
+                          onChange={(e) => updateFormData("phone", e.target.value)}
+                        />
                       </div>
                     </div>
                     <div>
                       <label className="mb-2 block text-sm font-medium">Subject *</label>
-                      <Input required placeholder="How can we help you?" className="h-11 md:h-12" />
+                      <Input 
+                        required 
+                        placeholder="How can we help you?" 
+                        className="h-11 md:h-12" 
+                        value={formData.subject}
+                        onChange={(e) => updateFormData("subject", e.target.value)}
+                      />
                     </div>
                     <div>
                       <label className="mb-2 block text-sm font-medium">Message *</label>
@@ -89,14 +191,24 @@ export default function ContactPage() {
                         rows={6}
                         placeholder="Tell us about your shipping needs..."
                         className="resize-none"
+                        value={formData.message}
+                        onChange={(e) => updateFormData("message", e.target.value)}
                       />
                     </div>
                     <Button
                       type="submit"
                       size="lg"
                       className="w-full sm:w-auto px-10 bg-accent text-white hover:bg-accent/90"
+                      disabled={isSubmitting}
                     >
-                      Send Message
+                      {isSubmitting ? (
+                        <>
+                          <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                          Sending...
+                        </>
+                      ) : (
+                        "Send Message"
+                      )}
                     </Button>
                   </form>
                 )}

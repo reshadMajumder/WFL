@@ -5,7 +5,7 @@ from django.db import models
 
 class BookConsignment(models.Model):
     shipment_type = models.CharField(max_length=255)
-    Cargo_type = models.EmailField()
+    Cargo_type = models.CharField(max_length=255)
     weight = models.FloatField()
     volume = models.FloatField()
     no_of_pieces = models.IntegerField()
@@ -35,3 +35,16 @@ class Emails(models.Model):
 
     def __str__(self):
         return self.email
+
+
+class ContactMessage(models.Model):
+    name = models.CharField(max_length=255)
+    email = models.EmailField()
+    company_name = models.CharField(max_length=255, blank=True, null=True)
+    phone=models.CharField(max_length=20, blank=True, null=True)
+    subject = models.CharField(max_length=255)
+    message = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.name} - {self.subject}"

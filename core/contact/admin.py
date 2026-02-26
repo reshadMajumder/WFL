@@ -1,6 +1,6 @@
 from django.contrib import admin
 from unfold.admin import ModelAdmin
-from .models import BookConsignment, Emails
+from .models import BookConsignment, Emails, ContactMessage
 
 @admin.register(BookConsignment)
 class BookConsignmentAdmin(ModelAdmin):
@@ -44,3 +44,32 @@ class EmailsAdmin(ModelAdmin):
     readonly_fields = ('created_at',)
     date_hierarchy = 'created_at'
     list_per_page = 50
+
+
+
+@admin.register(ContactMessage)
+class ContactMessageAdmin(ModelAdmin):  
+    list_display = ('name', 'email', 'company_name', 'phone', 'subject', 'created_at')
+    list_filter = ('created_at',)
+    search_fields = ('name', 'email', 'company_name', 'phone', 'subject', 'message')
+    readonly_fields = ('created_at',)
+    date_hierarchy = 'created_at'
+    list_per_page = 25
+    
+    fieldsets = (
+        ('Contact Information', {
+            'fields': ('name', 'company_name', 'email', 'phone')
+        }),
+        ('Message Details', {
+            'fields': ('subject', 'message')
+        }),
+        ('Additional Information', {
+            'fields': ('created_at',),
+            'classes': ('collapse',)
+        }),
+    )
+    
+    def get_queryset(self, request):
+        qs = super().get_queryset(request)
+        return qs.order_by('-created_at')
+    
