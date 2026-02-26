@@ -126,6 +126,8 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+STATIC_ROOT = BASE_DIR / 'staticfiles'  # ✅ where collectstatic will put files
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # add rate limiting / throttling
 REST_FRAMEWORK = {
@@ -158,6 +160,11 @@ SIMPLE_JWT = {
 CSRF_TRUSTED_ORIGINS = [
     'http://localhost:3000',
     'http://127.0.0.1:3000',
+    'https://my.worldfamouslogistics.com',
+    'http://my.worldfamouslogistics.com',
+    'http://worldfamouslogistics.com',
+    'https://worldfamouslogistics.com',
+
     ]
 
 CORS_ALLOW_ALL_ORIGINS = True
@@ -167,8 +174,8 @@ EMAIL_HOST = "smtp.gmail.com"
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
-EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER', '')
-EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD', '')
+EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER', 'worldfamouslogisticsbd@gmail.com')
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD', 'xzsy lapy zwss nklt')
 
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
