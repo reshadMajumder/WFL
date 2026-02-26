@@ -201,16 +201,10 @@ LOGGING = {
         "console": {
             "class": "logging.StreamHandler",
         },
-        "file": {
-            "class": "logging.FileHandler",
-            "filename": "email_errors.log",
-        },
     },
-    "loggers": {
-        "": {
-            "handlers": ["console", "file"],
-            "level": "WARNING",
-        },
+    "root": {
+        "handlers": ["console"],
+        "level": "INFO",
     },
 }
 
