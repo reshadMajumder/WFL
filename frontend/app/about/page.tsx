@@ -102,7 +102,7 @@ export default function AboutPage() {
       <Header />
       <main className="flex-1">
         <PageHeader
-          title="About World Famous Logistics"
+          title="About World Famous Logistics BD"
           description="Your trusted partner in global supply chain solutions since 2009."
           breadcrumbs={[{ label: "About Us", href: "/about" }]}
         />
@@ -114,7 +114,7 @@ export default function AboutPage() {
               <div>
                 <h2 className="text-3xl font-bold">Our Story</h2>
                 <p className="mt-4 text-muted-foreground leading-relaxed">
-                  Founded in 2009, World Famous Logistics began with a simple mission: to make global trade accessible
+                  Founded in 2009, World Famous Logistics BD began with a simple mission: to make global trade accessible
                   and efficient for businesses of all sizes. What started as a small freight forwarding company in Chittagong
                   has grown into a comprehensive logistics provider serving customers across 50+ countries.
                 </p>
@@ -275,7 +275,7 @@ export default function AboutPage() {
           <div className="container mx-auto px-4">
             <h2 className="text-center text-3xl font-bold">Leadership Team</h2>
             <p className="mx-auto mt-4 max-w-2xl text-center text-muted-foreground">
-              Meet the experienced professionals leading World Famous Logistics.
+              Meet the experienced professionals leading World Famous Logistics BD.
             </p>
             <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
               {leadership.map((person) => (
@@ -311,7 +311,7 @@ export default function AboutPage() {
           <div className="container mx-auto px-4 text-center">
             <h2 className="text-3xl font-bold text-primary-foreground">Ready to Work With Us?</h2>
             <p className="mx-auto mt-4 max-w-2xl text-primary-foreground/70">
-              Join thousands of businesses who trust World Famous Logistics for their freight forwarding needs.
+              Join thousands of businesses who trust World Famous Logistics BD for their freight forwarding needs.
             </p>
             <div className="mt-8 flex flex-wrap justify-center gap-4">
               <Link href="/contact">

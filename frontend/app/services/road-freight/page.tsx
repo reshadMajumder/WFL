@@ -3,7 +3,7 @@ import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 
 export const metadata = {
-  title: "Road Freight Services | World Famous Logistics",
+  title: "Road Freight Services | World Famous Logistics BD",
   description:
     "Inland haulage and trucking services with door-to-door delivery. Heavy covered trucks, trailers, and containerized cargo transport.",
 }
@@ -13,7 +13,7 @@ const roadFreightData = {
   subtitle: "Inland Haulage & Trucking",
   heroImage: "/freight-truck-highway-sunset-logistics-professiona.jpg",
   description:
-    "World Famous Logistics operates with high-quality truck carriers to ensure your shipments are picked up and delivered on time. We operate from all cities and inland points with special handling and rush service capabilities. Our inland transport division is equipped with trailers, power movers, and heavy covered trucks offering 24-hour service to meet your shipping deadlines. We specialize in carrying containerized cargo to any location.",
+    "World Famous Logistics BD operates with high-quality truck carriers to ensure your shipments are picked up and delivered on time. We operate from all cities and inland points with special handling and rush service capabilities. Our inland transport division is equipped with trailers, power movers, and heavy covered trucks offering 24-hour service to meet your shipping deadlines. We specialize in carrying containerized cargo to any location.",
   services: [
     "Full Truck Load (FTL)",
     "Less than Truck Load (LTL)",

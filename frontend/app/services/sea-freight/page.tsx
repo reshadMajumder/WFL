@@ -3,12 +3,12 @@ import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 
 export const metadata = {
-  title: "Sea Freight Services | World Famous Logistics",
+  title: "Sea Freight Services | World Famous Logistics BD",
   description:
     "Full container load (FCL) and less than container load (LCL) ocean shipping services with competitive rates on major trade lanes.",
 }
 
-const seaFreightData = {
+const seaFreightData = {  
   title: "Sea Freight",
   subtitle: "Ocean Freight Solutions",
   heroImage: "/container-ship-ocean-port-cargo-professional-logis.jpg",

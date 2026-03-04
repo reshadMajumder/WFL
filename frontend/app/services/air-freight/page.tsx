@@ -3,7 +3,7 @@ import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 
 export const metadata = {
-  title: "Air Freight Services | World Famous Logistics",
+  title: "Air Freight Services | World Famous Logistics BD",
   description:
     "Express air cargo services for time-sensitive shipments with global airport coverage. Door-to-door delivery, consolidation, and chartering services.",
 }
@@ -13,7 +13,7 @@ const airFreightData = {
   subtitle: "Express Air Cargo Solutions",
   heroImage: "/cargo-airplane-airport-freight-loading-professiona.jpg",
   description:
-    "World Famous Logistics is a leader in global air freight forwarding. With partnerships across major airlines and cargo carriers worldwide, we ensure your time-sensitive shipments reach their destination safely and on schedule. Our dedicated air freight team handles everything from documentation to customs clearance, providing end-to-end visibility throughout the journey.",
+    "World Famous Logistics BD is a leader in global air freight forwarding. With partnerships across major airlines and cargo carriers worldwide, we ensure your time-sensitive shipments reach their destination safely and on schedule. Our dedicated air freight team handles everything from documentation to customs clearance, providing end-to-end visibility throughout the journey.",
   services: [
     "Break Bulk Cargo",
     "Consolidation Services",

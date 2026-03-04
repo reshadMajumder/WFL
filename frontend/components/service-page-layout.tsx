@@ -165,7 +165,7 @@ export function ServicePageLayout({
       <section className="bg-primary py-16">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-2xl md:text-3xl font-bold text-primary-foreground mb-4">
-            Start Shipping with World Famous Logistics
+            Start Shipping with World Famous Logistics BD
           </h2>
           <p className="text-primary-foreground/80 max-w-2xl mx-auto mb-8">
             Experience reliable {title.toLowerCase()} services with real-time tracking and dedicated support.

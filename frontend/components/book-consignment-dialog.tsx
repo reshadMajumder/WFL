@@ -195,7 +195,7 @@ export function BookConsignmentDialog({ children }: BookConsignmentDialogProps) 
             <Package className="h-5 w-5 text-accent" />
             Book Consignment
           </DialogTitle>
-          <DialogDescription className="text-sm">Schedule your shipment pickup and delivery with World Famous Logistics.</DialogDescription>
+          <DialogDescription className="text-sm">Schedule your shipment pickup and delivery with World Famous Logistics BD.</DialogDescription>
         </DialogHeader>
 
         {/* Progress Steps */}

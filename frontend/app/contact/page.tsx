@@ -317,7 +317,7 @@ export default function ContactPage() {
                   allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  title="World Famous Logistics Office Location"
+                  title="World Famous Logistics BD Office Location"
                 />
               </div>
             </div>

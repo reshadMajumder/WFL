@@ -64,7 +64,7 @@ export function Header() {
               <span className="text-base sm:text-lg font-bold leading-none tracking-tight text-white">
                 WORLD FAMOUS
               </span>
-              <span className="text-[9px] sm:text-[10px] font-medium tracking-widest text-white/70">LOGISTICS</span>
+              <span className="text-[9px] sm:text-[10px] font-medium tracking-widest text-white/70">LOGISTICS BD</span>
             </div>
           </Link>
 

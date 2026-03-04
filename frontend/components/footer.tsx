@@ -37,7 +37,7 @@ export function Footer() {
             />
               <div className="flex flex-col">
                 <span className="text-lg font-bold leading-none tracking-tight">WORLD FAMOUS</span>
-                <span className="text-xs font-medium tracking-widest text-primary-foreground/70">LOGISTICS</span>
+                <span className="text-xs font-medium tracking-widest text-primary-foreground/70">LOGISTICS BD</span>
               </div>
             </Link>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-primary-foreground/70">
